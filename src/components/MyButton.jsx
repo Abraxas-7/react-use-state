@@ -1,21 +1,22 @@
 import React from "react";
 
-function MyButton({ language }) {
+function MyButton({ language, onClick }) {
   const buttonClasses = {
     HTML: "btn-danger",
     CSS: "btn-primary",
-    JavaScript: "btn-warning",
+    JavaScript: "btn-warning text-white",
     "Node.js": "btn-success",
     Express: "btn-dark",
-    ReactJS: "btn-info",
+    ReactJS: "btn-info text-white",
   };
 
   return (
-    <li>
-      <button className={`btn ${buttonClasses[language.title]}`}>
-        {language.title}
-      </button>
-    </li>
+    <button
+      className={`btn ${buttonClasses[language.title]}`}
+      onClick={() => onClick(language)}
+    >
+      {language.title}
+    </button>
   );
 }
 
